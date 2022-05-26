@@ -1,0 +1,29 @@
+{
+  "id": "blog-post-uid",
+  "label": "blog-post",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "image-field": {
+        "config": {
+          "label": "Image Field",
+          "constraint": {},
+          "thumbnails": []
+        },
+        "type": "Image"
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "text_image_right": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      }
+    }
+  }
+}

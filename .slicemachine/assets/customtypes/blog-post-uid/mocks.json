@@ -1,0 +1,16 @@
+{
+  "id": "f6c2f6ab-f0e2-4a0c-abe7-844ad8bc6b16",
+  "uid": "quia-et-aliquam",
+  "type": "blog-post-uid",
+  "data": {
+    "image-field": {
+      "dimensions": {
+        "width": 900,
+        "height": 500
+      },
+      "alt": "Placeholder image",
+      "copyright": null,
+      "url": "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?w=900&h=500&fit=crop"
+    }
+  }
+}
