@@ -1,5 +1,4 @@
 import * as prismic from "@prismicio/client";
-import { enableAutoPreviews } from "@prismicio/next";
 import sm from "../../sm.json";
 
 export const endpoint = sm.apiEndpoint;

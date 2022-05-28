@@ -39,6 +39,7 @@ export default function Posts({ posts }: PostProps) {
     </>
   );
 }
+
 export const getStaticProps: GetStaticProps = async ({ previewData }) => {
   const client = createClient({ previewData });
 
