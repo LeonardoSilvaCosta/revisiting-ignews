@@ -22,11 +22,5 @@ export function createClient(config = {}) {
     accessToken: process.env.PRISMIC_ACCESS_TOKEN,
   });
 
-  enableAutoPreviews({
-    client,
-    previewData: config.previewData,
-    req: config.req,
-  });
-
   return client;
 }
