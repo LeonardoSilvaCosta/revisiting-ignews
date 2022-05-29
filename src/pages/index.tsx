@@ -47,7 +47,7 @@ export default function Home({ product }: HomeProps) {
   );
 }
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
   const price = await stripe.prices.retrieve("price_1JWfcuHQLm86HHOuW60BdFr3");
 
   const product = {
@@ -64,4 +64,4 @@ export async function getStaticProps() {
     },
     revalidate: 60 * 60 * 24, //24 hours
   };
-}
+};

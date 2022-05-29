@@ -40,7 +40,7 @@ export default function Posts({ posts }: PostProps) {
   );
 }
 
-export async function getStaticProps({ previewData }) {
+export const getStaticProps: GetStaticProps = async ({ previewData }) => {
   const client = createClient({ previewData });
 
   const response = await client.getAllByType("publication");
@@ -53,7 +53,7 @@ export async function getStaticProps({ previewData }) {
         post.data.content.find((content) => content.type === "paragraph")
           ?.text ?? "",
       updatedAt: new Date(post.last_publication_date).toLocaleDateString(
-        "pt-BR",  
+        "pt-BR",
         {
           day: "2-digit",
           month: "long",
