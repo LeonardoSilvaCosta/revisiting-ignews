@@ -53,7 +53,7 @@ export async function getStaticProps({ previewData }) {
         post.data.content.find((content) => content.type === "paragraph")
           ?.text ?? "",
       updatedAt: new Date(post.last_publication_date).toLocaleDateString(
-        "pt-BR",
+        "pt-BR",  
         {
           day: "2-digit",
           month: "long",
