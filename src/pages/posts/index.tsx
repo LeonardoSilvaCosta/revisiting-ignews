@@ -40,7 +40,7 @@ export default function Posts({ posts }: PostProps) {
   );
 }
 
-export const getStaticProps: GetStaticProps = async ({ previewData }) => {
+export async function getStaticProps({ previewData }) {
   const client = createClient({ previewData });
 
   const response = await client.getAllByType("publication");
