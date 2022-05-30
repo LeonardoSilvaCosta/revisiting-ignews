@@ -1,8 +1,9 @@
 import Head from "next/head";
 import styles from "./styles.module.scss";
+import { createClient } from "../../services/prismicio";
 import { GetStaticProps } from "next";
+import { RichText } from "prismic-dom";
 import Link from "next/link";
-import { getAllPostsByType } from '../../services/prismicio';
 
 type Post = {
   slug: string;
@@ -40,7 +41,27 @@ export default function Posts({ posts }: PostProps) {
 }
 
 export const getStaticProps: GetStaticProps = async ({ previewData }) => {
-  const posts = await getAllPostsByType (previewData);
+  const client = createClient({ previewData });
+
+  const response = await client.getAllByType("publication");
+
+  const posts = response.map((post) => {
+    return {
+      slug: post.uid,
+      title: RichText.asText(post.data.title),
+      excerpt:
+        post.data.content.find((content) => content.type === "paragraph")
+          ?.text ?? "",
+      updatedAt: new Date(post.last_publication_date).toLocaleDateString(
+        "pt-BR",
+        {
+          day: "2-digit",
+          month: "long",
+          year: "numeric",
+        }
+      ),
+    };
+  });
 
   return {
     props: { posts },
