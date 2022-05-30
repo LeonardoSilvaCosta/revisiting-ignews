@@ -71,5 +71,12 @@ export const getStaticProps: GetStaticProps = async ({ previewData }) => {
   } catch (error) {
     console.log(error instanceof PrismicError);
     console.log("Error ao buscar: ", error);
+
+    return {
+      redirect: {
+        destination: "/posts",
+        statusCode: 307,
+      },
+    };
   }
 };
