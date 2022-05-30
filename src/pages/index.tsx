@@ -71,10 +71,7 @@ export const getStaticProps: GetStaticProps = async () => {
     console.log(error);
 
     return {
-      redirect: {
-        destination: "/",
-        statusCode: 307,
-      },
+      notFound: true,
     };
   }
 };
