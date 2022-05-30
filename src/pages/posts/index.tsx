@@ -73,10 +73,7 @@ export const getStaticProps: GetStaticProps = async ({ previewData }) => {
     console.log("Error ao buscar: ", error);
 
     return {
-      redirect: {
-        destination: "/posts",
-        statusCode: 307,
-      },
+      notFound: true,
     };
   }
 };
