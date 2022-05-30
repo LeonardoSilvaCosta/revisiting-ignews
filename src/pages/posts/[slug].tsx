@@ -1,3 +1,4 @@
+import { PrismicError } from "@prismicio/client";
 import { GetServerSideProps } from "next";
 import { getSession } from "next-auth/react";
 import Head from "next/head";
@@ -50,7 +51,9 @@ export const getServerSideProps: GetServerSideProps = async ( { req, params }) =
 
   const prismic = createClient(req);
 
-  const response = await prismic.getByUID('publication', String(slug), {});
+  try {
+
+    const response = await prismic.getByUID('publication', String(slug), {});
 
   const post = {
     slug,
@@ -66,4 +69,10 @@ export const getServerSideProps: GetServerSideProps = async ( { req, params }) =
   return {
     props: { post }
   }
+  } catch (error) {
+    console.log( error instanceof PrismicError);
+    console.log("Houve um erro", error);
+  }
+
+  
 }
