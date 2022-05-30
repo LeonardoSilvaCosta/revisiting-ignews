@@ -2,7 +2,7 @@ import Head from "next/head";
 import styles from "./styles.module.scss";
 import { createClient } from "../../services/prismicio";
 import { GetStaticProps } from "next";
-import { RichText } from "prismic-dom";
+import { RichText } from "prismic-reactjs";
 import Link from "next/link";
 
 type Post = {
